@@ -1,3 +1,4 @@
+PLACEHOLDER = "[name]"
 with open("input/letters/starting_letter.txt","r") as letter:
    letter_content = letter.readlines()
 
@@ -12,6 +13,6 @@ for guest in guests:
 for guest in guests:
     with open(f"output/readyToSend/inviteFor{guest}.txt", "w") as output:
         pre_name = letter_content[0].split(" ")[0]
-        name = letter_content[0].split(" ")[1].replace("[name]", guest)
+        name = letter_content[0].split(" ")[1].replace(PLACEHOLDER, guest)
         line = pre_name + " " + name
         output.write(line + "".join(letter_content[1:]))

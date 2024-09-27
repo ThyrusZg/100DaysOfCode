@@ -1,0 +1,1 @@
+FileNotFoundError raised and 'a_file.txt' file is created

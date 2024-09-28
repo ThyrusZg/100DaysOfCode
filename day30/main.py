@@ -8,7 +8,7 @@ finally -> Do this no matter what happens
 try:
     file = open("a_file.txt")
     a_dictionary = {"key": "value"}
-    print(a_dictionary["key"])
+    print(a_dictionary["mark"])
 except FileNotFoundError:
     file = open("a_file.txt", "w")
     file.write("FileNotFoundError raised and 'a_file.txt' file is created")

@@ -37,6 +37,12 @@ def pick_and_write_letter(name):
     with open(f"letters/letter_{letter_number}.txt", "r") as letter:
         final_content = letter.readlines()
 
+    with open(f"letters/letter_{letter_number}.txt", "w") as output:
+        pre_name = letter_content[0].split(" ")[0]
+        name = letter_content[0].split(" ")[1].replace(name, PLACEHOLDER)
+        line = pre_name + " " + name
+        output.write(line + "".join(letter_content[1:]))
+
     return final_content
 
 def send_email(message,email):

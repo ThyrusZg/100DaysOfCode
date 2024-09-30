@@ -31,3 +31,13 @@ False or True or False  this code will be evaluated as true
     output = function_2(function_1("hello"))
     print(output) -> output is "Hellohello"
 
+
+## Day 33
+
+Fun naming for response status codes
+
+- 1xx - Hold on (informational response)
+- 2xx - Here you go (successful )
+- 3xx - Go Away (redirection )
+- 4xx - You Screwed Up (client error)
+- 5xx - I Screwed Up (server error)

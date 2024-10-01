@@ -1,10 +1,12 @@
+from html import unescape
 from tkinter import *
 from data import Data
+import html
 
 THEME_COLOR = "#375362"
 GREEN = "#90ee90"
 RED = "#FF474C"
-FONT = ("Helvetica", 12, "bold")
+FONT = ("Helvetica", 14, "bold")
 TIMER = 2000
 CURRENT_SCORE = 0
 
@@ -24,8 +26,8 @@ def get_new_question():
     global new_question
     new_question = Data()
 
-    canvas.config(bg=THEME_COLOR)
-    canvas.itemconfig(question_text, text=new_question.question["question"])
+    canvas.config(bg="white")
+    canvas.itemconfig(question_text, text=html.unescape(new_question.question["question"]))
 
 
 window = Tk()
@@ -35,10 +37,10 @@ window.config(padx=50, pady=50, bg=THEME_COLOR)
 wrong_image = PhotoImage(file="images/false.png")
 right_image = PhotoImage(file="images/true.png")
 
-canvas = Canvas(window, width=250, height=400, bg=THEME_COLOR, highlightthickness=0)
+canvas = Canvas(window, width=250, height=400, bg="white", highlightthickness=0)
 score = canvas.create_text(200, 10, text="Score: 0", font=FONT)
 question_text = canvas.create_text(125, 200, text="", font=FONT, width=250)  # Initially empty
-canvas.grid(row=0, column=0, columnspan=2)
+canvas.grid(row=0, column=0, columnspan=2, pady=10)
 
 wrong_button = Button(image=wrong_image, highlightthickness=0, bg=THEME_COLOR, command=lambda: check_answer(False))
 wrong_button.grid(row=1, column=0)
